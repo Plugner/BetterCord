@@ -49,12 +49,7 @@ import jline.console.ConsoleReader;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.Synchronized;
-import net.md_5.bungee.api.CommandSender;
-import net.md_5.bungee.api.Favicon;
-import net.md_5.bungee.api.ProxyServer;
-import net.md_5.bungee.api.ReconnectHandler;
-import net.md_5.bungee.api.ServerPing;
-import net.md_5.bungee.api.Title;
+import net.md_5.bungee.api.*;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.KeybindComponent;
 import net.md_5.bungee.api.chat.ScoreComponent;
@@ -67,6 +62,7 @@ import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.api.plugin.PluginManager;
+import net.md_5.bungee.api.scheduler.TaskScheduler;
 import net.md_5.bungee.chat.ComponentSerializer;
 import net.md_5.bungee.chat.KeybindComponentSerializer;
 import net.md_5.bungee.chat.ScoreComponentSerializer;
@@ -575,6 +571,11 @@ public class BungeeCord extends ProxyServer
     }
 
     @Override
+    public Logger getLogger() {
+        return null;
+    }
+
+    @Override
     @SuppressWarnings("unchecked")
     public Collection<ProxiedPlayer> getPlayers()
     {
@@ -645,6 +646,31 @@ public class BungeeCord extends ProxyServer
     }
 
     @Override
+    public PluginManager getPluginManager() {
+        return null;
+    }
+
+    @Override
+    public ConfigurationAdapter getConfigurationAdapter() {
+        return null;
+    }
+
+    @Override
+    public void setConfigurationAdapter(ConfigurationAdapter adapter) {
+
+    }
+
+    @Override
+    public ReconnectHandler getReconnectHandler() {
+        return null;
+    }
+
+    @Override
+    public void setReconnectHandler(ReconnectHandler handler) {
+
+    }
+
+    @Override
     @Synchronized("pluginChannels")
     public void registerChannel(String channel)
     {
@@ -703,6 +729,16 @@ public class BungeeCord extends ProxyServer
     public CommandSender getConsole()
     {
         return ConsoleCommandSender.getInstance();
+    }
+
+    @Override
+    public File getPluginsFolder() {
+        return null;
+    }
+
+    @Override
+    public TaskScheduler getScheduler() {
+        return null;
     }
 
     @Override
@@ -767,6 +803,11 @@ public class BungeeCord extends ProxyServer
     public Collection<String> getDisabledCommands()
     {
         return config.getDisabledCommands();
+    }
+
+    @Override
+    public ProxyConfig getConfig() {
+        return null;
     }
 
     @Override
