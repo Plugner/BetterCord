@@ -29,7 +29,7 @@ public class CommandAlert extends Command
                 args[0] = args[0].substring( 2, args[0].length() );
             } else
             {
-                builder.append( ProxyServer.getInstance().getTranslation( "alert" ) );
+                builder.append( ChatColor.translateAlternateColorCodes( '&', "&9Alert> &7") );
             }
 
             for ( String s : args )
