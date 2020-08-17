@@ -312,7 +312,7 @@ public final class ChatColor
     @Deprecated
     public String name()
     {
-        return getName().toUpperCase( Locale.ROOT );
+        return this.name.toUpperCase( Locale.ROOT );
     }
 
     /**
